@@ -12,3 +12,9 @@ Feature: Checkout repo
     And the banner should document that this app takes options
     And the banner should document that this app's arguments are:
       | repo_url  | which is required |
+
+  Scenario: Happy Path
+    Given a git repo with some test files at "/tmp/Projects.git"
+    When I successfully run `gitnuke file:///tmp/Projects.git`
+    Then the files should be checked out in the directory "~/Projects"
+
