@@ -10,16 +10,21 @@ class App
   include Methadone::SH
 
   main do |repo_url|
-    Dir.chdir ENV['HOME'] do
+    Dir.chdir options['checkout-dir'] do
       sh "git clone #{repo_url}"
+      basedir = repo_url.split(/\//)[-1].gsub(/\.git$/,'')
+      end
     end
-  end
 
   # supplemental methods here
 
   # Declare command-line interface here
 
   description "A git repo downloader got nukeTheCuke"
+
+  options['checkout-dir'] = ENV['HOME']
+  on("--force", "Overwrite files if they exist")
+  on("-d DIR", "--checkout-dir", "Where to clone the repo")
   #
   # Accept flags via:
   # on("--flag VAL","Some flag")
