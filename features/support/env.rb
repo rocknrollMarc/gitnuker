@@ -1,8 +1,11 @@
 require 'aruba/cucumber'
 require 'methadone/cucumber'
 
-ENV['PATH'] = "#{File.expand_path(File.dirname(__FILE__) + '/../../bin')}#{File::PATH_SEPARATOR}#{ENV['PATH']}"
+ENV['PATH'] = File.expand_path(File.dirname(__FILE__) + '/../../bin') +
+              File::PATH_SEPARATOR + ENV['PATH']
+
 LIB_DIR = File.join(File.expand_path(File.dirname(__FILE__)),'..','..','lib')
+
 
 Before do
   # Using "announce" causes massive warnings on 1.9.2
@@ -18,5 +21,5 @@ end
 
 After do
   ENV['RUBYLIB'] = @original_rubylib
-  ENV['HOME'] = original_home
+  ENV['HOME'] = @original_home
 end

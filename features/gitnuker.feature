@@ -15,6 +15,6 @@ Feature: Checkout repo
 
   Scenario: Happy Path
     Given a git repo with some test files at "/tmp/Projects.git"
-    When I successfully run `gitnuke file:///tmp/Projects.git`
+    When I successfully run `gitnuker file:///tmp/Projects.git`
     Then the files should be checked out in the directory "~/Projects"
 

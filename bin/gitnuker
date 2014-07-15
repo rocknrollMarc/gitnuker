@@ -7,11 +7,12 @@ require 'gitnuker.rb'
 class App
   include Methadone::Main
   include Methadone::CLILogging
+  include Methadone::SH
 
-  main do # Add args you want: |like,so|
-    # your program code here
-    # You can access CLI options via
-    # the options Hash
+  main do |repo_url|
+    Dir.chdir ENV['HOME'] do
+      sh "git clone #{repo_url}"
+    end
   end
 
   # supplemental methods here
