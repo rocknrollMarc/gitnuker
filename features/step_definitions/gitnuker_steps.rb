@@ -1,5 +1,7 @@
 include FileUtils
 
+FILES = %w(.vimrc .bashrc .zshrc .exrc)
+
 Given(/^a git repo with some test files at "([^"]*)"$/) do |repo_dir|
   @repo_dir = repo_dir
   base_dir = File.dirname(repo_dir)
