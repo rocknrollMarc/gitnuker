@@ -22,7 +22,7 @@ Then(/^the files should be checked out in the directory "([^"]*)"$/) do |project
   # Expand ~ to ENV["HOME"]
   base_dir = File.dirname(project_dir)
   base_dir = ENV["HOME"] if base_dir == "~"
-  project_dir = File.join(project_dir, File.basename(project_dir))
+  project_dir = File.join(base_dir, File.basename(project_dir))
 
   File.exist?(project_dir).should == true
   Dir.chdir project_dir do
