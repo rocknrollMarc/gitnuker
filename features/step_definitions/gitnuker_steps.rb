@@ -1,6 +1,6 @@
 include FileUtils
 
-FILES = %w(.vimrc .bashrc .zshrc .exrc)
+FILES = %w(.vimrc .bashrc .zshrc)
 
 Given(/^a git repo with some test files at "([^"]*)"$/) do |repo_dir|
   @repo_dir = repo_dir
@@ -10,8 +10,9 @@ Given(/^a git repo with some test files at "([^"]*)"$/) do |repo_dir|
     rm_rf dir
     mkdir dir
   end
+
   Dir.chdir repo_dir do
-    FILES.each { |_| touch _}
+    FILES.each { |_| touch _  }
     sh "git init ."
     sh "git add #{FILES.join(' ')}"
     sh "git commit -a -m 'initial commit'"
@@ -22,7 +23,7 @@ Then(/^the files should be checked out in the directory "([^"]*)"$/) do |project
   # Expand ~ to ENV["HOME"]
   base_dir = File.dirname(project_dir)
   base_dir = ENV["HOME"] if base_dir == "~"
-  project_dir = File.join(base_dir, File.basename(project_dir))
+  project_dir = File.join(base_dir,File.basename(project_dir))
 
   File.exist?(project_dir).should == true
   Dir.chdir project_dir do
