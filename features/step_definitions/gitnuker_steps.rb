@@ -6,7 +6,7 @@ Given(/^a git repo with some test files at "([^"]*)"$/) do |repo_dir|
   dir = File.basename(repo_dir)
   Dir.chdir base_dir do
     rm_rf dir
-    mkdir
+    mkdir dir
   end
   Dir.chdir repo_dir do
     FILES.each { |_| touch _}

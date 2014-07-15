@@ -18,5 +18,5 @@ end
 
 After do
   ENV['RUBYLIB'] = @original_rubylib
-  ENV['HOME'] = original_home
+  ENV['HOME'] = @original_home
 end
