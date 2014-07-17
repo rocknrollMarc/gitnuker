@@ -32,3 +32,15 @@ Then(/^the files should be checked out in the directory "([^"]*)"$/) do |project
     end
   end
 end
+
+Given(/^a git repo with some files at "(.*?)"$/) do |arg1|
+    pending # express the regexp above with the code you wish you had
+end
+
+Given(/^I have my files cloned to "(.*?)"$/) do |arg1|
+    pending # express the regexp above with the code you wish you had
+end
+
+Given(/^There`s a new file in the git repo$/) do
+    pending # express the regexp above with the code you wish you had
+end
