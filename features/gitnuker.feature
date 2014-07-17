@@ -23,10 +23,10 @@ Feature: Checkout repo
     Then the files should be checked out in the directory "~/Projects"
 
   Scenario: Fail if directory is cloned
-    Given a git repo with some dotfiles at "/tmp/dotfiles.get"
+    Given a git repo with some files at "/tmp/Projects.git"
     And I have my files cloned to "~/Projects"
     And There`s a new file in the git repo
-    When I run `gitnuker file:///tmp/Projects.get`
+    When I run `gitnuker file:///tmp/Projects.git`
     Then the exit status should not be 0
     And the stderr should contain "checkout dir already exists, use --force to overwrite"
 
